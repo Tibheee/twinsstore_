@@ -1,135 +1,116 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const buyButtons = document.querySelectorAll('.buy-button');
-    const paymentForm = document.getElementById('payment-form');
-    const productNameInput = document.getElementById('product-name');
-    const productPriceInput = document.getElementById('product-price');
-    const paymentMethodInputs = document.querySelectorAll('input[name="payment-method"]');
-    const ewalletDetails = document.getElementById('ewallet-details');
-    const whatsappLink = document.getElementById('whatsapp-link');
-    const instagramLink = document.getElementById('instagram-link');
+document.addEventListener('DOMContentLoaded', () => {
+    let userBalance = 0;
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    buyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const product = this.closest('.product');
-            const productName = product.getAttribute('data-name');
-            const productPrice = product.getAttribute('data-price');
+    // Fungsi untuk memperbarui tampilan saldo saat ini
+    function updateBalanceDisplay() {
+        document.getElementById('current-balance').textContent = 'Saldo saat ini: Rp ' + userBalance;
+    }
 
-            productNameInput.value = productName;
-            productPriceInput.value = `Rp ${productPrice}`;
-            window.location.href = '#payment';
+    // Fungsi untuk menambahkan produk ke keranjang
+    function addToCart(product) {
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    // Fungsi untuk memperbarui tampilan keranjang
+    function updateCartDisplay() {
+        const cartContainer = document.getElementById('cart-details');
+        cartContainer.innerHTML = ''; // Kosongkan tampilan sebelumnya
+        cart.forEach(item => {
+            const productItem = document.createElement('div');
+            productItem.className = 'product-item';
+            productItem.innerHTML = `<h3>${item.name}</h3><p>Rp ${item.price}</p>`;
+            cartContainer.appendChild(productItem);
         });
+    }
+
+    // Event listener untuk form penambahan saldo
+    document.getElementById('balance-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const amount = parseFloat(document.getElementById('balance-amount').value);
+        userBalance += amount;
+        updateBalanceDisplay();
+        alert('Saldo berhasil ditambahkan: Rp ' + amount + '\nSaldo saat ini: Rp ' + userBalance);
     });
 
-    paymentMethodInputs.forEach(input => {
-        input.addEventListener('change', function() {
-            ewalletDetails.style.display = 'none';
-
-            if (this.value === 'ovo' || this.value === 'gopay' || this.value === 'dana') {
-                ewalletDetails.style.display = 'block';
+    // Event listener untuk tombol "Buy Now"
+    document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const productPrice = parseFloat(this.parentElement.getAttribute('data-price'));
+            if (userBalance >= productPrice) {
+                userBalance -= productPrice;
+                updateBalanceDisplay();
+                alert('Pembelian berhasil! Saldo berkurang: Rp ' + productPrice + '\nSaldo saat ini: Rp ' + userBalance);
+            } else {
+                alert('Saldo tidak mencukupi untuk melakukan pembelian ini.');
             }
         });
     });
 
-    paymentForm.addEventListener('submit', function(event) {
+    // Fungsi untuk menghitung ongkir (contoh sederhana)
+    function calculateShippingCost(courier, location) {
+        const baseCost = 10000; // Ongkir dasar
+        const locationFactor = location.length * 100; // Faktor lokasi berdasarkan panjang nama lokasi
+        const courierFactor = {
+            'jne': 1.2,
+            'tiki': 1.1,
+            'pos': 1.0,
+            'jnt': 1.3,
+            'shopee': 1.4
+        }[courier] || 1.0;
+
+        return baseCost + locationFactor * courierFactor;
+    }
+
+    // Event listener untuk tombol "Check Shipping Cost"
+    document.getElementById('check-shipping').addEventListener('click', function() {
+        const courier = document.getElementById('courier').value;
+        const location = document.getElementById('location').value;
+
+        if (courier && location) {
+            const shippingCost = calculateShippingCost(courier, location);
+            document.getElementById('shipping-details').textContent = 'Ongkir: Rp ' + shippingCost;
+        } else {
+            alert('Silakan pilih jasa kirim dan masukkan lokasi Anda.');
+        }
+    });
+
+    // Event listener untuk form pembayaran
+    document.getElementById('payment-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+        const productName = document.getElementById('product-name').value;
+        const productPrice = parseFloat(document.getElementById('product-price').value);
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const address = document.getElementById('address').value;
-        const productName = productNameInput.value;
-        const productPrice = productPriceInput.value;
-        let paymentDetails = {};
+        const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
 
-        if (paymentMethod === 'ovo' || paymentMethod === 'gopay' || paymentMethod === 'dana') {
-            paymentDetails = {
-                ewalletPhone: document.getElementById('ewallet-phone').value
-            };
-        }
+        // Logika untuk memproses pembayaran
+        alert('Pembayaran berhasil untuk ' + productName + ' dengan harga Rp ' + productPrice + ' menggunakan metode ' + paymentMethod);
+    });
 
-        // Contoh pengiriman data ke server
-        fetch('/api/payment', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                productName,
-                productPrice,
-                name,
-                email,
-                address,
-                paymentMethod,
-                paymentDetails
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            alert('Pembayaran berhasil!');
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Pembayaran gagal!');
+    // Event listener untuk form tracking
+    document.getElementById('tracking-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const trackingNumber = document.getElementById('tracking-number').value;
+        // Logika untuk mendapatkan status pengiriman berdasarkan nomor resi
+        // Misalnya, kita bisa menggunakan API dari kurir untuk mendapatkan status pengiriman
+        // Di sini kita akan menggunakan data dummy untuk contoh
+        const trackingStatus = "Paket sedang dalam perjalanan ke tujuan.";
+        document.getElementById('tracking-status').textContent = 'Status Pengiriman: ' + trackingStatus;
+    });
+
+    // Event listener untuk tombol "Add to Cart"
+    document.querySelectorAll('.add-to-cart-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const productName = this.parentElement.getAttribute('data-name');
+            const productPrice = parseFloat(this.parentElement.getAttribute('data-price'));
+            addToCart({ name: productName, price: productPrice });
         });
     });
 
-    document.getElementById('add-product-button').addEventListener('click', function() {
-        const productList = document.getElementById('product-list');
-        const newProduct = document.createElement('div');
-        newProduct.className = 'product';
-        newProduct.innerHTML = `
-            <img src="product.jpg" alt="New Product">
-            <h3>New Product</h3>
-            <p>Rp 0</p>
-            <button class="buy-button">Buy Now</button>
-        `;
-        productList.appendChild(newProduct);
-    });
-
-    document.getElementById('check-shipping').addEventListener('click', function() {
-        const courier = document.getElementById('courier').value;
-        const shippingDetails = document.getElementById('shipping-details');
-        let cost;
-
-        switch (courier) {
-            case 'jne':
-                cost = 'Rp 20,000';
-                break;
-            case 'tiki':
-                cost = 'Rp 18,000';
-                break;
-            case 'pos':
-                cost = 'Rp 15,000';
-                break;
-            case 'jnt':
-                cost = 'Rp 22,000';
-                break;
-            case 'shopee':
-                cost = 'Rp 25,000';
-                break;
-            default:
-                cost = 'Rp 0';
-        }
-
-        shippingDetails.innerHTML = `Shipping cost with ${courier.toUpperCase()} is ${cost}.`;
-    });
-
-    // Update WhatsApp link with a default message
-    const phoneNumber = '081322058740'; // Ganti dengan nomor WhatsApp Anda
-    whatsappLink.href = `https://wa.me/${phoneNumber}?text=Hello, I would like to inquire about your products.`;
-
-    // Update WhatsApp link with user message
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('contact-name').value;
-        const email = document.getElementById('contact-email').value;
-        const message = document.getElementById('contact-message').value;
-        const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-        whatsappLink.href = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-        whatsappLink.click();
-    });
-
-    // Update Instagram link
-    const instagramUsername = 'twinsstoreciamis_'; // Ganti dengan nama pengguna Instagram Anda
-    instagramLink.href = `https://www.instagram.com/${instagramUsername}`;
+    // Memperbarui tampilan keranjang saat halaman dimuat
+    updateCartDisplay();
 });
