@@ -16,152 +16,206 @@
                     <li><a href="#shop">Shop</a></li>
                     <li><a href="#payment">Payment</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cart"><img src="keranjang.jpg" alt="Cart" class="cart-icon"> Cart (<span id="cart-count">0</span>)</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section class="hero" id="home">
-        <h2>Welcome to Twins Store</h2>
-        <p>Your one-stop shop for the latest fashion trends.</p>
+        <div class="container">
+            <h2>HAPPY SHOPPING</h2>
+            <p></p>
+        </div>
     </section>
 
     <section class="shop" id="shop">
-        <h2>Our Products</h2>
-        <div class="products" id="product-list">
-            <div class="product" data-name="Product 1" data-price="100000">
-                <img src="hoodie dont die.jpeg" alt="Product 1">
-                <h3>Hoodie Dont Die</h3>
-                <p>Rp 130,000</p>
-                <button class="buy-button">Buy Now</button>
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products" id="product-list">
+                <div class="product" data-name="Product 1" data-price="100000">
+                    <img src="hoodie dont die.jpeg" alt="Product 1">
+                    <h3>Hoodie Dont Die</h3>
+                    <p>Rp 130,000</p>
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Product 2" data-price="200000">
+                    <img src="kaos washing mask.jpeg" alt="Product 2">
+                    <h3>Kaos Washing Mask</h3>
+                    <p>Rp 130,000</p>
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Product 3" data-price="300000">
+                    <img src="Hoodie Biru.jpeg" alt="Product 3">
+                    <h3>Hoodie Lucky Blue</h3>
+                    <p>Rp 130,000</p>
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Product 4" data-price="400000">
+                    <img src="hoodie black 1.jpeg" alt="Product 4">
+                    <h3>Hoodie Syndicate</h3>
+                    <p>Rp 130,000</p>
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Product 5" data-price="500000">
+                    <img src="jeans sobek 1.png" alt="Product 5">
+                    <h3>Jeans Sobek Black</h3>
+                    <p>Rp 150,000</p>
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Product 6" data-price="600000">
+                    <img src="Jeans Bioblitz.png" alt="Product 6">
+                    <h3>Jeans Blue</h3>
+                    <p>Rp 150,000</p>
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
             </div>
-            <div class="product" data-name="Product 2" data-price="200000">
-                <img src="kaos washing mask.jpeg" alt="Product 2">
-                <h3>kaos Washing Mask</h3>
-                <p>Rp 130,000</p>
-                <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product" data-name="Product 3" data-price="300000">
-                <img src="Hoodie Biru.jpeg" alt="Product 3">
-                <h3>Hoodie Lucky Blue</h3>
-                <p>Rp 130,000</p>
-                <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product" data-name="Product 4" data-price="400000">
-                <img src="hoodie black 1.jpeg" alt="Product 4">
-                <h3>Hoodie Syndicate</h3>
-                <p>Rp 130,000</p>
-                <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product" data-name="Product 5" data-price="500000">
-                <img src="jeans sobek 1.png" alt="Product 5">
-                <h3>Jeans Sobek Hitam</h3>
-                <p>Rp 150,000</p>
-                <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product" data-name="Product 6" data-price="600000">
-                <img src="Jeans Bioblitz.png" alt="Product 6">
-                <h3>Jeans Blue Slimfit</h3>
-                <p>Rp 150,000</p>
-                <button class="buy-button">Buy Now</button>
-            </div>
+            <button id="add-product-button">Add Product</button>
         </div>
-        <button id="add-product-button">Add Product</button>
     </section>
 
     <section class="payment" id="payment">
-        <h2>Payment Methods</h2>
-        <form id="payment-form">
-            <label for="product-name">Product Name</label>
-            <input type="text" id="product-name" name="product-name" readonly>
+        <div class="container">
+            <h2>Payment Methods</h2>
+            <form id="payment-form">
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" name="product-name" readonly>
 
-            <label for="product-price">Product Price</label>
-            <input type="text" id="product-price" name="product-price" readonly>
+                <label for="product-price">Product Price</label>
+                <input type="text" id="product-price" name="product-price" readonly>
 
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="address">Address</label>
-            <input type="text" id="address" name="address" required>
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
 
-            <div class="payment-methods">
-                <h3>Select Payment Method</h3>
-                <label>
-                    <input type="radio" name="payment-method" value="credit-card" required> Credit Card
-                </label>
-                <label>
-                    <input type="radio" name="payment-method" value="bank-transfer"> Bank Transfer
-                </label>
-                <label>
-                    <input type="radio" name="payment-method" value="cash-on-delivery"> Cash on Delivery
-                </label>
-                <label>
-                    <input type="radio" name="payment-method" value="ovo"> OVO
-                </label>
-                <label>
-                    <input type="radio" name="payment-method" value="gopay"> GoPay
-                </label>
-                <label>
-                    <input type="radio" name="payment-method" value="dana"> DANA
-                </label>
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    <label>
+                        <input type="radio" name="payment-method" value="credit-card" required> Credit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="bank-transfer"> Bank Transfer
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="cash-on-delivery"> Cash on Delivery
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="ovo"> OVO
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="gopay"> GoPay
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="dana"> DANA
+                    </label>
+                </div>
+
+                <div id="ewallet-details" style="display: none;">
+                    <label for="ewallet-phone">E-Wallet Phone Number</label>
+                    <input type="text" id="ewallet-phone" name="ewallet-phone">
+                </div>
+
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="balance" id="balance">
+        <div class="container">
+            <div class="balance-form-container">
+                <h2>Tambah Saldo</h2>
+                <div class="current-balance" id="current-balance">Saldo saat ini: Rp 0</div>
+                <form id="balance-form">
+                    <label for="balance-amount">Jumlah Saldo</label>
+                    <input type="number" id="balance-amount" name="balance-amount" required>
+
+                    <div class="payment-methods">
+                        <h3>Pilih Metode Pembayaran</h3>
+                        <label>
+                            <input type="radio" name="balance-payment-method" value="ovo" required> OVO
+                        </label>
+                        <label>
+                            <input type="radio" name="balance-payment-method" value="gopay"> GoPay
+                        </label>
+                        <label>
+                            <input type="radio" name="balance-payment-method" value="dana"> DANA
+                        </label>
+                        <label>
+                            <input type="radio" name="balance-payment-method" value="linkaja"> LinkAja
+                        </label>
+                        <label>
+                            <input type="radio" name="balance-payment-method" value="mbanking"> M-Banking
+                        </label>
+                    </div>
+
+                    <button type="submit">Tambah Saldo</button>
+                </form>
             </div>
-
-            <div id="ewallet-details" style="display: none;">
-                <label for="ewallet-phone">E-Wallet Phone Number</label>
-                <input type="text" id="ewallet-phone" name="ewallet-phone">
-            </div>
-
-            <button type="submit">Pay Now</button>
-        </form>
+        </div>
     </section>
 
     <section class="shipping" id="shipping">
-        <h2>Shipping Details</h2>
-        <form>
-            <label for="courier">Select Courier</label>
-            <select id="courier" name="courier">
-                <option value="jne">JNE</option>
-                <option value="tiki">TIKI</option>
-                <option value="pos">POS Indonesia</option>
-                <option value="jnt">J&T</option>
-                <option value="shopee">Shopee Express</option>
-            </select>
-            <button type="button" id="check-shipping">Check Shipping Cost</button>
-        </form>
-        <div id="shipping-details">
-            <!-- Rincian pengiriman akan ditampilkan di sini -->
+        <div class="container">
+            <h2>Shipping Details</h2>
+            <form id="shipping-form">
+                <label for="courier">Select Courier</label>
+                <select id="courier" name="courier">
+                    <option value="jne">JNE</option>
+                    <option value="tiki">TIKI</option>
+                    <option value="pos">POS Indonesia</option>
+                    <option value="jnt">J&T</option>
+                    <option value="shopee">Shopee Express</option>
+                </select>
+
+                <label for="location">Your Location</label>
+                <input type="text" id="location" name="location" required>
+
+                <button type="button" id="check-shipping">Check Shipping Cost</button>
+            </form>
+            <div id="shipping-details">
+                <!-- Rincian pengiriman akan ditampilkan di sini -->
+            </div>
+        </div>
+    </section>
+
+    <section class="cart" id="cart">
+        <div class="container">
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-details" class="product-list">
+                <!-- Produk yang ditambahkan ke keranjang akan ditampilkan di sini -->
+            </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-            <label for="name">Name</label>
-            <input type="text" id="contact-name" name="name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="contact-email" name="email" required>
-
-            <label for="message">Message</label>
-            <textarea id="contact-message" name="message" rows="5" required></textarea>
-
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="whatsapp-contact">
-            <h3>Or contact us via WhatsApp:</h3>
-            <a id="whatsapp-link" href="#" target="_blank">Chat via WhatsApp</a>
-        </div>
-        <div class="instagram-contact">
-            <h3>Follow us on Instagram:</h3>
-            <a id="instagram-link" href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank">Follow on Instagram</a>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="whatsapp-contact">
+                <h3>Or contact us via WhatsApp:</h3>
+                <a id="whatsapp-link" href="#" target="_blank">Chat via WhatsApp</a>
+            </div>
+            <div class="instagram-contact">
+                <h3>Follow us on Instagram:</h3>
+                <a id="instagram-link" href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank">Follow on Instagram</a>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2023 Fashion Store. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2019 TWINS STORE. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
