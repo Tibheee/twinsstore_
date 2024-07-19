@@ -506,3 +506,45 @@ body {
     font-size: 18px;
     color: #ccc; /* Ubah warna teks menjadi lebih terang untuk kontras */
 }
+
+/* Login Section Styles */
+.login {
+    background-color: #000; /* Latar belakang hitam */
+    padding: 50px 0; /* Tambahkan padding untuk ruang */
+    text-align: center; /* Pusatkan teks */
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
+}
+
+.login h2 {
+    font-size: 36px; /* Ukuran font judul */
+    margin-bottom: 20px; /* Jarak bawah judul */
+    color: #ff6347; /* Ubah warna judul menjadi merah cerah untuk kontras */
+}
+
+.login p {
+    font-size: 18px; /* Ukuran font untuk instruksi */
+    margin-bottom: 30px; /* Jarak bawah untuk memberi ruang */
+}
+
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff; /* Warna teks putih */
+    font-size: 16px;
+    transition: background-color 0.3s; /* Efek transisi */
+}
+
+.login-button.google {
+    background-color: #db4437; /* Warna latar belakang Google */
+}
+
+.login-button.facebook {
+    background-color: #4267B2; /* Warna latar belakang Facebook */
+}
+
+.login-button:hover {
+    opacity: 0.8; /* Efek saat hover */
+}
