@@ -1,81 +1,66 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Fancy', Fraktur;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background-color: #f4f4f4;
-    color: #333;
 }
 
 .container {
     width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+    margin: auto;
+    overflow: hidden;
 }
 
 /* Header Styles */
 .header {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     padding: 20px 0;
+    text-align: center;
 }
 
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
+.header h1 {
+    font-size: 48px; /* Ukuran font lebih besar */
+    color: #fff347; /* Ubah warna teks menjadi merah cerah untuk kontras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk efek kedalaman */
     margin: 0;
+    padding: 10px; /* Tambahkan padding untuk ruang di sekitar teks */
+    border: 2px solid #ffed47; /* Tambahkan border untuk kerangka */
+    border-radius: 8px; /* Tambahkan sudut melengkung untuk border */
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan untuk kontras */
 }
 
 .navbar ul {
-    list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
+    list-style: none;
+    text-align: center;
 }
 
-.navbar li {
-    margin: 0 20px;
+.navbar ul li {
+    display: inline;
+    margin: 0 10px;
 }
 
-.navbar a {
+.navbar ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
 }
 
-.navbar a:hover {
-    color: #ff6347;
-}
-
-/* Responsive Header */
-@media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar li {
-        margin: 10px 0;
-    }
+.cart-icon {
+    width: 20px; /* Ukuran kecil yang sesuai */
+    height: 20px; /* Ukuran kecil yang sesuai */
+    vertical-align: middle;
+    margin-right: 5px; /* Jarak antara ikon dan teks */
 }
 
 /* Hero Section Styles */
 .hero {
-    background: url('welcome.jpg') no-repeat center center/cover;
+    background: url('street style.png') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 100px 0;
+    padding: 180px 0;
 }
 
 .hero h2 {
@@ -89,91 +74,107 @@ body {
 
 /* Shop Section Styles */
 .shop {
-    padding: 50px 0;
+    background-color: #000; /* Tambahkan latar belakang hitam */
+    padding: 50px 0; /* Tambahkan padding untuk ruang */
     text-align: center;
-    background-color: #fff;
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
 }
 
 .shop h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #fff; /* Ubah warna judul menjadi putih */
 }
 
 .products {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
     justify-content: space-around;
 }
 
 .product {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin: 0.5rem;
-    text-align: center;
-    flex: 1 1 calc(33.333% - 1rem);
-    box-sizing: border-box;
+    background: #333; /* Tambahkan latar belakang gelap untuk produk */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
 }
 
 .product img {
     max-width: 100%;
-    height: auto;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
 }
 
 .product h3 {
     font-size: 24px;
     margin: 10px 0;
+    color: #fff; /* Ubah warna teks menjadi putih */
 }
 
 .product p {
     font-size: 18px;
-    color: #666;
+    color: #ccc; /* Ubah warna teks menjadi lebih terang untuk kontras */
 }
 
 .buy-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #333;
-    color: #fff;
+    background: #000; /* Ubah latar belakang menjadi hitam */
+    color: #fff; /* Ubah warna teks menjadi putih */
     border: none;
+    padding: 10px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s; /* Tambahkan efek transisi */
 }
 
 .buy-button:hover {
-    background-color: #ff6347;
+    background-color: #2db80a; /* Ubah warna saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.add-to-cart-button {
+    background: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s; /* Tambahkan efek transisi */
+}
+
+.add-to-cart-button:hover {
+    background-color: #e55347; /* Ubah warna saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
 }
 
 /* Payment Section Styles */
 .payment {
-    padding: 50px 0;
+    background-color: #000; /* Tambahkan latar belakang hitam */
+    padding: 50px 0; /* Tambahkan padding untuk ruang */
     text-align: center;
-    background-color: #fff;
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
 }
 
 .payment h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #fff; /* Ubah warna judul menjadi putih */
 }
 
 .payment form {
     margin-bottom: 20px;
-    background-color: #f9f9f9;
+    background-color: #333; /* Tambahkan latar belakang gelap untuk form */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
 }
 
 .payment label {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #333;
+    color: #fff; /* Ubah warna label menjadi putih */
 }
 
 .payment input {
@@ -188,8 +189,8 @@ body {
 .payment button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #333;
-    color: #fff;
+    background-color: #ff6347; /* Warna tombol */
+    color: #fff; /* Warna teks tombol */
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -197,7 +198,7 @@ body {
 }
 
 .payment button:hover {
-    background-color: #ff6347;
+    background-color: #e55347; /* Warna tombol saat hover */
 }
 
 .payment-methods {
@@ -213,44 +214,126 @@ body {
     margin-right: 10px;
 }
 
-/* Footer Styles */
-.footer {
-    background-color: #333;
-    color: #fff;
+/* Balance Section Styles */
+.balance {
+    background-color: #000; /* Tambahkan latar belakang hitam */
+    padding: 50px 0; /* Tambahkan padding untuk ruang */
     text-align: center;
-    padding: 20px 0;
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
 }
 
-.footer p {
-    margin: 0;
-    font-size: 14px;
-}
-
-/* Shipping Styles */
-.shipping {
-    padding: 50px 0;
-    text-align: center;
-    background-color: #fff;
-}
-
-.shipping h2 {
+.balance h2 {
     font-size: 36px;
     margin-bottom: 20px;
     color: #333;
 }
 
+.balance-form-container {
+    background-color: #333; /* Tambahkan latar belakang gelap untuk form */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
+}
+
+.balance-form-container h2 {
+    color: #fff; /* Ubah warna judul menjadi putih */
+}
+
+.balance-form-container label {
+    color: #fff; /* Ubah warna label menjadi putih */
+}
+
+.balance-form-container input,
+.balance-form-container select,
+.balance-form-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.balance-form-container button {
+    background-color: #ff6347; /* Warna tombol */
+    color: #fff; /* Warna teks tombol */
+}
+
+.current-balance {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Shipping Section Styles */
+.shipping {
+    background-color: #000; /* Tambahkan latar belakang hitam */
+    padding: 50px 0;
+    text-align: center;
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
+}
+
+.shipping h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff; /* Ubah warna judul menjadi putih */
+}
+
 .shipping form {
     margin-bottom: 20px;
+    background-color: #333; /* Tambahkan latar belakang gelap untuk form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .shipping label {
+    color: #fff; /* Ubah warna label menjadi putih */
+}
+
+.shipping input,
+.shipping select {
+    background-color: #fff; /* Latar belakang putih untuk input */
+    color: #333; /* Warna teks input */
+}
+
+.shipping button[type="button"] {
+    background-color: #ff6347; /* Warna tombol */
+    color: #fff; /* Warna teks tombol */
+}
+
+.shipping #shipping-details {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Tracking Section Styles */
+.tracking {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.tracking h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tracking form {
+    margin-bottom: 20px;
+}
+
+.tracking label {
     display: block;
     font-size: 18px;
     margin-bottom: 5px;
     color: #333;
 }
 
-.shipping select {
+.tracking input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -259,7 +342,7 @@ body {
     border-radius: 4px;
 }
 
-.shipping button[type="button"] {
+.tracking button[type="submit"] {
     padding: 10px 20px;
     font-size: 18px;
     background-color: #333;
@@ -270,41 +353,44 @@ body {
     transition: background-color 0.3s;
 }
 
-.shipping button[type="button"]:hover {
+.tracking button[type="submit"]:hover {
     background-color: #ff6347;
 }
 
-.shipping #shipping-details {
+#tracking-status {
     margin-top: 20px;
+    font-size: 18px;
+    color: #333;
 }
 
 /* Contact Styles */
 .contact {
-    padding: 2rem 0;
-    background-color: #f4f4f4;
+    background-color: #000; /* Tambahkan latar belakang hitam */
+    padding: 50px 0; /* Tambahkan padding untuk ruang */
     text-align: center;
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
 }
 
 .contact h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #fff; /* Ubah warna judul menjadi putih */
 }
 
 .contact form {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #333; /* Tambahkan latar belakang gelap untuk form */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
 }
 
 .contact label {
     display: block;
     font-size: 18px;
     margin-bottom: 5px;
-    color: #333;
+    color: #fff; /* Ubah warna label menjadi putih */
 }
 
 .contact input,
@@ -315,13 +401,15 @@ body {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #fff; /* Latar belakang putih untuk input */
+    color: #333; /* Warna teks input */
 }
 
 .contact button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #333;
-    color: #fff;
+    background-color: #ff6347; /* Warna tombol */
+    color: #fff; /* Warna teks tombol */
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -329,7 +417,7 @@ body {
 }
 
 .contact button:hover {
-    background-color: #ff6347;
+    background-color: #e55347; /* Warna tombol saat hover */
 }
 
 .whatsapp-contact,
@@ -363,4 +451,58 @@ body {
 
 .instagram-contact a:hover {
     background-color: #C13584;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Cart Section Styles */
+.cart {
+    background-color: #000; /* Tambahkan latar belakang hitam */
+    padding: 50px 0; /* Tambahkan padding untuk ruang */
+    text-align: center;
+    color: #fff; /* Ubah warna teks menjadi putih untuk kontras */
+}
+
+.cart h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff; /* Ubah warna judul menjadi putih */
+}
+
+.cart .product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart .product-item {
+    background: #333; /* Tambahkan latar belakang gelap untuk item produk */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk efek kedalaman */
+}
+
+.cart .product-item h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #fff; /* Ubah warna teks menjadi putih */
+}
+
+.cart .product-item p {
+    font-size: 18px;
+    color: #ccc; /* Ubah warna teks menjadi lebih terang untuk kontras */
 }
